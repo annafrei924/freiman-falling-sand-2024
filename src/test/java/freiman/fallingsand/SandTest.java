@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SandTest
 {
+
     @Test
     public void string()  {
         //given
