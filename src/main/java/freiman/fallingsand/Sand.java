@@ -49,7 +49,7 @@ public class Sand {
     public void fall() {
         //moves all sand down one square
         //starting from second to last row; last row doesn't matter bc can't move down
-        for (int y = height - 2 ; y >= 0; y--) {
+        for (int y = height - 2; y >= 0; y--) {
 
             for (int x = 0; x < width; x++) {
                 // if there's sand here but not below
