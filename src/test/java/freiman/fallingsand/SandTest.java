@@ -22,7 +22,7 @@ class SandTest
         //given
         Sand sand = new Sand();
         //when
-        sand.put(1,0);
+        sand.put(1, 0);
         //then
         assertEquals("010\n000\n000\n", sand.toString());
     }

@@ -37,10 +37,10 @@ public class Sand {
 
     }
 
-    public void fall(){
+    public void fall() {
         //moves all sand down one square
         //starting from second to last row; last row doens't matter bc can't move down
-        for (int y = field.length - 2; y >= 0 ; y--) {
+        for (int y = field.length - 2; y >= 0; y--) {
 
             for (int x = 0; x < 3; x++) {
                 // if there's sand here but not below
