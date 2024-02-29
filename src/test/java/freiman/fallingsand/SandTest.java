@@ -7,10 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class SandTest
 {
 
+
     @Test
     public void string()  {
         //given
-        Sand sand = new Sand();
+        Sand sand = new Sand(3, 3);
         //when
         String actual = sand.toString();
         //then
@@ -20,7 +21,7 @@ class SandTest
     @Test
     public void put() {
         //given
-        Sand sand = new Sand();
+        Sand sand = new Sand(3, 3);
         //when
         sand.put(1, 0);
         //then
@@ -30,7 +31,7 @@ class SandTest
     @Test
     public void fall() {
         //given
-        Sand sand = new Sand();
+        Sand sand = new Sand(3, 3);
         sand.put(1, 0);
 
         //when
@@ -43,7 +44,7 @@ class SandTest
     @Test
     public void fallOnGround() {
         //given
-        Sand sand = new Sand();
+        Sand sand = new Sand(3, 3);
         sand.put(1, 2);
 
         //when
@@ -56,7 +57,7 @@ class SandTest
     @Test
     public void fallOnOtherSand() {
         //given
-        Sand sand = new Sand();
+        Sand sand = new Sand(3, 3);
         sand.put(1, 1);
         sand.put(1, 2);
 
