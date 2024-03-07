@@ -1,10 +1,13 @@
 package freiman.fallingsand;
 
+import java.util.Random;
+
 public class Sand {
 
+    private final Random rand = new Random();
     private int width;
     private int height;
-    private int [][] field;
+    private int[][] field;
 
     public Sand(int width, int height) {
         this.width = width;
@@ -37,7 +40,7 @@ public class Sand {
     }
 
     /**
-     *  Sets the value in the field to be 1
+     * Sets the value in the field to be 1
      */
 
     public void put(int x, int y) {
@@ -50,16 +53,30 @@ public class Sand {
         //moves all sand down one square
         //starting from second to last row; last row doesn't matter bc can't move down
         for (int y = height - 2; y >= 0; y--) {
-
             for (int x = 0; x < width; x++) {
-                // if there's sand here but not below
-                if (field[y][x] == 1 && field[y + 1][x] == 0) {
-                    field[y][x] = 0;
-                    field[y + 1][x] = 1;
+
+                if (field[y][x] == 1) {
+
+                    // does the sand fall straight down
+                    if (field[y + 1][x] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x] = 1;
+                    }
+                    //does the sand fall right
+                    else if (field[y + 1][x + 1] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x + 1] = 1;
+
+                    }
+                    //does the dans fall left
+                    else if (field[y + 1][x - 1] == 0) {
+                        field[y][x] = 0;
+                        field[y + 1][x - 1] = 1;
+
+                    }
                 }
             }
         }
-
     }
 
 }

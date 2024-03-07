@@ -2,14 +2,13 @@ package freiman.fallingsand;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SandTest
-{
+class SandTest {
 
 
     @Test
-    public void string()  {
+    public void string() {
         //given
         Sand sand = new Sand(3, 3);
         //when
@@ -55,16 +54,44 @@ class SandTest
     }
 
     @Test
-    public void fallOnOtherSand() {
+    public void fallToTheRight() {
         //given
         Sand sand = new Sand(3, 3);
         sand.put(1, 1);
         sand.put(1, 2);
+        sand.put(0, 2); //left
 
         //when
         sand.fall();
 
         //then
+        assertEquals("000\n000\n111\n", sand.toString());
+    }
+
+    @Test
+    public void fallToTheLeft() {
+        //given
+        Sand sand = new Sand(3, 3);
+        sand.put(1, 1);
+        sand.put(1, 2);
+        sand.put(2, 2); //left
+
+        //when
+        sand.fall();
+
+        //then
+        assertEquals("000\n000\n111\n", sand.toString());
+    }
+
+    @Test
+    public void fallSimultaneously() {
+
+        Sand sand = new Sand(3, 3);
+        sand.put(1, 0);
+        sand.put(1, 1);
+
+        sand.fall();
+
         assertEquals("000\n010\n010\n", sand.toString());
     }
 }
