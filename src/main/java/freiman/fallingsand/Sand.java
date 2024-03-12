@@ -46,8 +46,8 @@ public class Sand {
             }
             System.out.println(); // Move to the next line after each row
         }
-        System.out.println("\n--------------------------------------------------" +
-                "--------------------------------------------------\n");
+        System.out.println("\n--------------------------------------------------"
+                + "--------------------------------------------------\n");
     }
 
     public String toString() {
