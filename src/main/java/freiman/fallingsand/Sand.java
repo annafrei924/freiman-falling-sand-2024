@@ -46,7 +46,8 @@ public class Sand {
             }
             System.out.println(); // Move to the next line after each row
         }
-        System.out.println("\n----------------------------------------------------------------------------------------------------\n");
+        System.out.println("\n--------------------------------------------------" +
+                "--------------------------------------------------\n");
     }
 
     public String toString() {
@@ -105,7 +106,8 @@ public class Sand {
     }
 
     public void randomSand(int n) {
-        int x, y;
+        int x;
+        int y;
         for (int i = 0; i < n; i++) {
             do {
                 x = random.nextInt(field[0].length);
