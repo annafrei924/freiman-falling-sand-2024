@@ -1,6 +1,7 @@
 package freiman.fallingsand;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Sand {
 
@@ -19,9 +20,23 @@ public class Sand {
     }
 
     public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
         Sand sand = new Sand(50, 10);
-        sand.randomSand(10);
+        sand.randomSand(50);
+        System.out.println("Press enter to make sand fall or any key to quit.");
         printGrid(sand.field);
+        //Take user input
+        boolean done = false;
+
+        while (!done) {
+            String key = s.nextLine();
+            if (key.isEmpty()) {
+                sand.fall();
+                printGrid(sand.field);
+            } else {
+                done = true;
+            }
+        }
     }
 
     public static void printGrid(int[][] grid) {
@@ -31,6 +46,7 @@ public class Sand {
             }
             System.out.println(); // Move to the next line after each row
         }
+        System.out.println("\n----------------------------------------------------------------------------------------------------\n");
     }
 
     public String toString() {
@@ -94,8 +110,8 @@ public class Sand {
             do {
                 x = random.nextInt(field[0].length);
                 y = random.nextInt(field.length);
-                field[y][x] = 1;
             } while (field[y][x] == 1);
+            field[y][x] = 1;
         }
     }
 
