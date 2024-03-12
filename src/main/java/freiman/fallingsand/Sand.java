@@ -20,34 +20,20 @@ public class Sand {
     }
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
         Sand sand = new Sand(50, 10);
         sand.randomSand(50);
         System.out.println("Press enter to make sand fall or any key to quit.");
-        printGrid(sand.field);
+        System.out.println(sand.toString());
         //Take user input
-        boolean done = false;
-
-        while (!done) {
-            String key = s.nextLine();
+        Scanner s = new Scanner(System.in);
+        String key = s.nextLine();
+        do {
             if (key.isEmpty()) {
                 sand.fall();
-                printGrid(sand.field);
-            } else {
-                done = true;
+                System.out.println(sand.toString());
             }
-        }
-    }
-
-    public static void printGrid(int[][] grid) {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                System.out.print(grid[i][j] + " ");
-            }
-            System.out.println(); // Move to the next line after each row
-        }
-        System.out.println("\n--------------------------------------------------"
-                + "--------------------------------------------------\n");
+            key = s.nextLine();
+        } while (key.isEmpty());
     }
 
     public String toString() {
@@ -106,9 +92,9 @@ public class Sand {
     }
 
     public void randomSand(int n) {
-        int x;
-        int y;
         for (int i = 0; i < n; i++) {
+            int x;
+            int y;
             do {
                 x = random.nextInt(field[0].length);
                 y = random.nextInt(field.length);
