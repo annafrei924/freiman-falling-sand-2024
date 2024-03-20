@@ -57,12 +57,23 @@ public class Sand {
     }
 
     /**
+     * @return the field
+     */
+    public int[][] getField() {
+        return field;
+    }
+
+    /**
      * Sets the value in field to be 1
      */
+
     public void put(int x, int y) {
         field[y][x] = 1;
     }
 
+    /**
+     * makes sand fall
+     */
     public void fall() {
         // moves all sand down one square
         for (int y = field.length - 2; y >= 0; y--) {
@@ -79,10 +90,13 @@ public class Sand {
                     int direction1 = rightFirst ? +1 : -1;
                     int direction2 = rightFirst ? -1 : +1;
 
-                    if (field[y + 1][x + direction1] == 0) {
+
+                    if (x + direction1 >= 0 && x + direction1 < field[x].length
+                            && field[y + 1][x + direction1] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction1] = 1;
-                    } else if (field[y + 1][x + direction2] == 0) {
+                    } else if (x + direction2 >= 0 && x + direction2 < field[x].length
+                            && field[y + 1][x + direction2] == 0) {
                         field[y][x] = 0;
                         field[y + 1][x + direction2] = 1;
                     }
@@ -91,6 +105,9 @@ public class Sand {
         }
     }
 
+    /**
+     * places n amount of sand in the grid in random places
+     */
     public void randomSand(int n) {
         for (int i = 0; i < n; i++) {
             int x;
@@ -102,7 +119,6 @@ public class Sand {
             field[y][x] = 1;
         }
     }
-
 }
 
 
